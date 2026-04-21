@@ -100,6 +100,30 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#exemplo-pratico-com-pyspark" class="nav-link">Exemplo prático com PySpark</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#criar-dados" class="nav-link">Criar dados</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#salvar-como-delta" class="nav-link">Salvar como Delta</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#atualizar-dados" class="nav-link">Atualizar dados</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#ler-dados" class="nav-link">Ler dados</a>
+              <ul class="nav flex-column">
               </ul>
             </li>
         </ul>
@@ -131,7 +155,20 @@
 - id
 - nome
 - estado</p>
-<p>Onde foram aplicadas operações de inserção, atualização e exclusão.</p></div>
+<h2 id="exemplo-pratico-com-pyspark">Exemplo prático com PySpark</h2>
+<p>```python
+from delta.tables import DeltaTable</p>
+<h1 id="criar-dados">Criar dados</h1>
+<p>data = [(1, "Lucas", "SC"), (2, "Felipe", "SC")]
+df = spark.createDataFrame(data, ["id", "nome", "estado"])</p>
+<h1 id="salvar-como-delta">Salvar como Delta</h1>
+<p>df.write.format("delta").save("data/clientes_delta")</p>
+<h1 id="atualizar-dados">Atualizar dados</h1>
+<p>delta_table = DeltaTable.forPath(spark, "data/clientes_delta")
+delta_table.update(condition="id = 1", set={"estado": "'PR'"})</p>
+<h1 id="ler-dados">Ler dados</h1>
+<p>df = spark.read.format("delta").load("data/clientes_delta")
+df.show()</p></div>
             </div>
         </div>
 

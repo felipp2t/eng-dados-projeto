@@ -100,6 +100,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#exemplo-pratico-com-sql" class="nav-link">Exemplo prático com SQL</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -131,7 +135,16 @@
 - id
 - nome
 - estado</p>
-<p>Onde foram aplicadas operações de inserção, atualização e exclusão.</p></div>
+<h2 id="exemplo-pratico-com-sql">Exemplo prático com SQL</h2>
+<p>```sql
+CREATE TABLE local.db.clientes (
+  id INT,
+  nome STRING,
+  estado STRING
+) USING iceberg;</p>
+<p>INSERT INTO local.db.clientes VALUES (1, 'Lucas', 'SC');</p>
+<p>UPDATE local.db.clientes SET estado = 'PR' WHERE id = 1;</p>
+<p>SELECT * FROM local.db.clientes;</p></div>
             </div>
         </div>
 

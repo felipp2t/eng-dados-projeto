@@ -29,4 +29,22 @@ Foi criada uma tabela de clientes contendo:
 - nome
 - estado
 
-Onde foram aplicadas operações de inserção, atualização e exclusão.
+## Exemplo prático com PySpark
+
+```python
+from delta.tables import DeltaTable
+
+# Criar dados
+data = [(1, "Lucas", "SC"), (2, "Felipe", "SC")]
+df = spark.createDataFrame(data, ["id", "nome", "estado"])
+
+# Salvar como Delta
+df.write.format("delta").save("data/clientes_delta")
+
+# Atualizar dados
+delta_table = DeltaTable.forPath(spark, "data/clientes_delta")
+delta_table.update(condition="id = 1", set={"estado": "'PR'"})
+
+# Ler dados
+df = spark.read.format("delta").load("data/clientes_delta")
+df.show()

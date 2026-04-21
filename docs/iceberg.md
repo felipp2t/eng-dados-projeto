@@ -29,4 +29,17 @@ Foi criada uma tabela de clientes contendo:
 - nome
 - estado
 
-Onde foram aplicadas operações de inserção, atualização e exclusão.
+## Exemplo prático com SQL
+
+```sql
+CREATE TABLE local.db.clientes (
+  id INT,
+  nome STRING,
+  estado STRING
+) USING iceberg;
+
+INSERT INTO local.db.clientes VALUES (1, 'Lucas', 'SC');
+
+UPDATE local.db.clientes SET estado = 'PR' WHERE id = 1;
+
+SELECT * FROM local.db.clientes;
