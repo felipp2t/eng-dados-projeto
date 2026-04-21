@@ -1,0 +1,11 @@
+services:
+  spark:
+    image: jupyter/pyspark-notebook:latest
+    container_name: spark_notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      PYSPARK_SUBMIT_ARGS: "--packages io.delta:delta-spark_2.12:3.0.0,org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.4.2 pyspark-shell"

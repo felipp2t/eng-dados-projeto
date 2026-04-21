@@ -1,0 +1,7 @@
+site_name: Projeto Engenharia de Dados
+
+nav:
+  - Início: index.md
+  - Apache Spark: spark.md
+  - Delta Lake: delta.md
+  - Apache Iceberg: iceberg.md
