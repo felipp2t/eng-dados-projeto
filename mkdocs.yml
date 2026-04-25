@@ -1,0 +1,43 @@
+site_name: Apache Spark com Delta Lake e Iceberg
+site_description: Documentação do projeto de Engenharia de Dados com PySpark, Delta Lake e Apache Iceberg
+site_author: Felipe
+
+theme:
+  name: material
+  language: pt
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Modo escuro
+    - scheme: slate
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+
+nav:
+  - Home: index.md
+  - Apache Spark: spark.md
+  - Delta Lake: delta.md
+  - Apache Iceberg: iceberg.md
