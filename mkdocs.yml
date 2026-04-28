@@ -1,6 +1,6 @@
 site_name: Apache Spark com Delta Lake e Iceberg
 site_description: Documentação do projeto de Engenharia de Dados com PySpark, Delta Lake e Apache Iceberg
-site_author: Felipe
+site_author: Felipe e Lucas
 
 theme:
   name: material
